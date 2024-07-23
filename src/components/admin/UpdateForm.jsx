@@ -42,7 +42,6 @@ const UpdateForm = () => {
         setPrice("")
         setTitle("")
       }
-      // alert("Updated Successfully");
     }
   };
 
