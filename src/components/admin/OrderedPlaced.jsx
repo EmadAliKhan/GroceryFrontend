@@ -4,12 +4,7 @@ import axios from "axios";
 
 const OrderedPlaced = () => {
   const [allOrder, setAllOrder] = useState([]);
-
-  const [delivered, setDelivered] = useState(false);
-
-  const[itemName,setItemName] = useState("")
   
-
   const getOrders = async () => {
     try {
       const response = await axios.get(`${BASE_URL}/getOrder`);
@@ -22,20 +17,9 @@ const OrderedPlaced = () => {
     }
   };
 
-// const fetchingProductName = async(_id)=>{
-// try {
-//     const fetchingIMage = await axios.get(`${BASE_URL}/getProduct/${_id}`)
-//     // console.log(fetchingIMage.data.data.title);
-//     setItemName(fetchingIMage.data.data.title)
-// } catch (error) {
-//   console.log(error);
-// }
-// // console.log(_id);
-// }
 
   useEffect(() => {
     getOrders();
-    // fetchingProductName()
   }, []);
 
 const deleteOrder = async(orderId)=>{
@@ -47,13 +31,6 @@ const deleteOrder = async(orderId)=>{
     console.log("error", error);
   }
 }
-
-// const deliverOrder = (orderId)=>{
-//   console.log(orderId);
-//   if (orderId) {
-    
-//   }
-// }
 
   return (
     <>
@@ -94,11 +71,7 @@ const deleteOrder = async(orderId)=>{
                   <td>{e.phoneNumber}</td>
                   <td>{e.email}</td>
                   <td>
-                    {/* <button
-                      className="btn btn-success text-black" onClick={()=>deliverOrder(e._id)}
-                    >
-                      Delivered
-                    </button> */}
+                   
                     <button className="btn btn-danger text-black " onClick={()=>deleteOrder(e._id)}>
                       Delete 
                     </button>
