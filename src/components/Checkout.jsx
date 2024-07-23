@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import axios from "axios";
@@ -8,6 +8,7 @@ import Navbar from "./Navbar";
 import { useTypewriter } from "react-simple-typewriter";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+import { clearCart } from "../store/AddToCartSlice";
 
 
 const Checkout = () => {
@@ -20,12 +21,12 @@ const Checkout = () => {
   const [state, setState] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [comment, setComment] = React.useState("");
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
 
   const { addToCart } = useSelector((state) => state.addToCartReducer);
 // console.log("addToCart",addToCart);
-  const placeOrder =async  () => {
-
+  const placeOrder = async() => {
     if (
       !FirstName ||
       !LastName ||
@@ -41,6 +42,8 @@ notifyError()
     } else {
       // alert("Your order has been placed....");
       notifySuccess()
+      dispatch(clearCart())
+      navigate('/')
     }
 
     let userData = {
@@ -101,7 +104,6 @@ notifyError()
       theme: "dark",
       });;
 
-  const navigate = useNavigate();
 
   let subTotal = 0;
 
