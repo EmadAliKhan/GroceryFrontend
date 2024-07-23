@@ -24,14 +24,9 @@ import UpdateIcon from '@mui/icons-material/Update';
 import DriveFolderUploadRoundedIcon from '@mui/icons-material/DriveFolderUploadRounded';
 import BorderColorRoundedIcon from '@mui/icons-material/BorderColorRounded';
 import { Cursor, useTypewriter } from "react-simple-typewriter";
-import RejectedOrder from "./RejectedOrder";
-import DeliveredOrder from "./DeliveredOrder";
 import Notification from "./Notification";
-import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications';
-import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import UpdateForm from "./UpdateForm";
-import CuroselPics from "./CuroselPics";
 
 const drawerWidth = 240;
 
@@ -54,24 +49,6 @@ const routes = [
     element: <OrderedPlaced />,
     icon: <BorderColorRoundedIcon />,
   },
-  {
-    name: "curoselImages",
-    path: "CuroselImage",
-    element: <CuroselPics />,
-    icon: <BorderColorRoundedIcon />,
-  },
-  // {
-  //   name: "rejectedOrder",
-  //   path: "RejectedOrder",
-  //   element: <RejectedOrder />,
-  //   icon: <ThumbDownIcon />,
-  // },
-  // {
-  //   name: "deliveredOrder",
-  //   path: "DeliveredOrder",
-  //   element: <DeliveredOrder />,
-  //   icon: <LocalShippingIcon />,
-  // },
   {
     name: "notification",
     path: "Notification",
