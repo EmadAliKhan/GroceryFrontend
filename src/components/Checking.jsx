@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Products from "./Products";
-import axios from "axios";
-import { BASE_URL } from "../Api/api";
 
 const images = [
   "https://wallpapers.com/images/hd/supermarket-background-p6at3wx8tfok5n9q.jpg",
@@ -11,9 +9,9 @@ const images = [
 
 const Checking = () => {
   const [current, setCurrent] = useState(0);
-  const[imaginary,setImaginary] = useState([])
  const[selectedCategory,setSelectedCatogery]= useState("All")
-  useEffect(() => {
+
+ useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prevCurrent) => (prevCurrent === images.length - 1 ? 0 : prevCurrent + 1));
     }, 3000); // Change slide every 3 seconds
@@ -26,19 +24,6 @@ const Checking = () => {
     setOpenCategory(category === openCategory ? null : category);
   };
 
-  const getCuroselPics = async()=>{
-   try {
-    const respone = await axios.get(`${BASE_URL}/getCurosel`)
-    setImaginary(respone.data.data)
-    // console.log(imaginary);
-   } catch (error) {
-    console.log(error);
-   }
-  }
-  console.log("imaginary",imaginary);
-useEffect(()=>{
-  getCuroselPics()
-},[])
 
   return (
     <>
